@@ -1,11 +1,12 @@
-var todos = [
-  
-];
+var todosString = localStorage.getItem("todos");
+
+var todos = JSON.parse(todosString) || [];
 
 var selected = "All";
 
 var list = document.getElementById("list");
 function render(ls = todos) {
+  localStorage.setItem("todos",JSON.stringify(ls))
   const tmp = ls.filter(function (t) {
     var s = true;
     switch (selected) {
@@ -27,8 +28,8 @@ function render(ls = todos) {
   });
 
   list.innerHTML = "";
-  var lengthElement = document.getElementById("length")
-  lengthElement.innerText = todos.filter(f => f.status === false).length
+  var lengthElement = document.getElementById("length");
+  lengthElement.innerText = todos.filter((f) => f.status === false).length;
 
   for (var i = 0; i < tmp.length; i++) {
     const todo = tmp[i];
@@ -62,8 +63,8 @@ function render(ls = todos) {
 
     var text = document.createElement("p");
     text.innerText = todo.text;
-    if(todo.status === true){
-        text.classList.add("completed")
+    if (todo.status === true) {
+      text.classList.add("completed");
     }
 
     var deleteBtn = document.createElement("button");
@@ -87,8 +88,6 @@ function render(ls = todos) {
       todos.splice(index, 1);
       return render();
     });
-
-   
 
     row.appendChild(checkbox);
     row.appendChild(text);
@@ -124,16 +123,15 @@ function actionsRender() {
     element.onclick = function (e) {
       selected = e.target.innerText;
       actionsRender();
-      render()
+      render();
     };
   }
 }
 actionsRender();
 
-
-var clear = document.getElementById("clear")
-clear.addEventListener("click",function(){
-    const tmp = todos.filter(f => f.status === false)
-    todos = tmp
-    render()
-})
+var clear = document.getElementById("clear");
+clear.addEventListener("click", function () {
+  const tmp = todos.filter((f) => f.status === false);
+  todos = tmp;
+  render();
+});
