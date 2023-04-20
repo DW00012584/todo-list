@@ -5,14 +5,15 @@
 }
 
 html{
-    font-size: 16px;    
+    font-size: 16px;   
+    background-color: #d5e5e5; 
 }
 
 h1{
     font-size: 3rem;
     text-align: center;
     font-weight: 100;
-    color: #c5cff5
+    color: #5a749b
 }
 
 .w-6{
@@ -41,7 +42,7 @@ h1{
     inset: 0;
     transform: translateY(8px) scale(0.99);
     border-radius: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid #c8c8ce;
     z-index: 2;
     background-color: #fff;
 }
@@ -63,6 +64,7 @@ h1{
     box-shadow: 0 2px 10px rgba(0,0,0,0.15);
     border-radius: 8px;
     padding: 1rem;
+    background-color: #fff;
 }
 
 .input{
@@ -77,6 +79,7 @@ h1{
     border: none;
     outline: none;
     padding: 0.4rem 1rem;
+    background-color: #fff;
 }
 
 .input > input::placeholder{
