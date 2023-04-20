@@ -1,19 +1,5 @@
 var todos = [
-  {
-    id: 1,
-    status: false,
-    text: "こんにちは",
-  },
-  {
-    id: 2,
-    status: false,
-    text: "Hello",
-  },
-  {
-    id: 3,
-    status: false,
-    text: "Ciao",
-  },
+  
 ];
 
 var selected = "All";
